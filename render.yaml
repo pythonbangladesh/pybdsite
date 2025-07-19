@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pybdsite
+    env: python
+    buildCommand: |
+      pip install uv
+      uv sync
+    startCommand: cd src && uv run python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
