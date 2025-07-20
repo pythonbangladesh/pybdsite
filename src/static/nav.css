@@ -1,0 +1,156 @@
+/* ===========================================
+   NAVIGATION STYLES
+   =========================================== */
+
+/* Main navbar container - Fixed at top with gradient background */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #3498db); /* Blue gradient from dark to light */
+    position: fixed; /* Stays at top when scrolling */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures navbar appears above other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Container that holds all nav elements with max width and centering */
+.nav-container {
+    max-width: 1200px; /* Prevents navbar from getting too wide on large screens */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Side padding for mobile/tablet */
+    display: flex; /* Flexbox layout for horizontal alignment */
+    justify-content: space-between; /* Spreads items across full width */
+    align-items: center; /* Vertically centers all items */
+    height: 70px; /* Fixed height for consistent navbar size */
+}
+
+/* Logo section containing image and text */
+.nav-logo {
+    display: flex; /* Horizontal layout for logo elements */
+    align-items: center; /* Vertically centers logo items */
+    gap: 12px; /* Space between logo image and text */
+    color: white; /* White text color */
+    font-size: 1.5rem; /* Large text for brand visibility */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Logo image styling */
+.nav-logo img {
+    width: 26px; /* Fixed width */
+    height: 28px; /* Fixed height */
+    object-fit: contain; /* Maintains aspect ratio while fitting dimensions */
+}
+
+/* Navigation menu list */
+.nav-menu {
+    display: flex; /* Horizontal layout for menu items */
+    list-style: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+/* Individual menu items */
+.nav-item {
+    margin-left: 30px; /* Space between menu items */
+}
+
+/* Menu links styling */
+.nav-link {
+    color: white; /* White text color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+    font-weight: 500; /* Medium font weight */
+}
+
+/* Link hover effect */
+.nav-link:hover {
+    color: #f39c12; /* Orange color on hover */
+}
+
+/* Mobile hamburger menu button */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column; /* Stacks hamburger bars vertically */
+    cursor: pointer; /* Shows it's clickable */
+    padding: 5px; /* Adds clickable area */
+}
+
+/* Individual hamburger bars */
+.bar {
+    width: 25px; /* Bar width */
+    height: 3px; /* Bar thickness */
+    background-color: white; /* White bars */
+    margin: 3px 0; /* Vertical spacing between bars */
+    transition: all 0.3s ease; /* Smooth animation for hamburger transformations */
+    border-radius: 2px; /* Slightly rounded bars */
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   =========================================== */
+
+/* Mobile styles for screens smaller than 768px */
+@media (max-width: 767px) {
+    /* Show hamburger menu on mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Mobile menu styling */
+    .nav-menu {
+        position: fixed; /* Fixed positioning for full-screen menu */
+        left: -100%; /* Hidden off-screen initially */
+        top: 70px; /* Positioned below navbar */
+        flex-direction: column; /* Vertical menu layout */
+        background: linear-gradient(135deg, #2c3e50, #3498db); /* Same gradient as navbar */
+        width: 100%; /* Full width */
+        text-align: center; /* Center-aligned text */
+        transition: left 0.3s ease; /* Smooth slide-in animation */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        padding: 20px 0; /* Top and bottom padding */
+    }
+    
+    /* Show menu when active class is added */
+    .nav-menu.active {
+        left: 0; /* Slide menu into view */
+    }
+    
+    /* Mobile menu items spacing */
+    .nav-item {
+        margin: 15px 0; /* Vertical spacing between items */
+    }
+    
+    /* Remove left margin from first item on mobile */
+    .nav-item:first-child {
+        margin-left: 0;
+    }
+    
+    /* Larger touch targets for mobile links */
+    .nav-link {
+        display: block; /* Makes entire area clickable */
+        padding: 10px 20px; /* Larger touch area */
+        font-size: 1.1rem; /* Slightly larger text for mobile */
+    }
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - DESKTOP ENHANCEMENTS
+   =========================================== */
+
+/* Desktop styles for screens 768px and larger */
+@media (min-width: 768px) {
+    /* Larger gap between logo elements on desktop */
+    .nav-logo {
+        gap: 20px;
+    }
+    
+    /* Larger logo on desktop */
+    .nav-logo img {
+        width: 32px;
+        height: 34px;
+    }
+    
+    /* Increased padding for better desktop spacing */
+    .nav-container {
+        padding: 0 40px;
+    }
+}

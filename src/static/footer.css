@@ -1,0 +1,175 @@
+/* ===========================================
+   FOOTER STYLES
+   =========================================== */
+
+/* Main footer container with dark background */
+.footer {
+    background: #2c3e50; /* Dark blue-gray background */
+    color: white; /* White text for contrast */
+    padding: 50px 0 20px; /* Top padding for spacing, bottom padding for copyright */
+}
+
+/* Main footer content grid container */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid - min 250px columns */
+    gap: 40px; /* Space between grid items */
+    margin-bottom: 30px; /* Space above bottom border */
+    align-items: center; /* Vertically centers all grid items */
+}
+
+/* Footer logo section with image and text */
+.footer-logo {
+    display: flex; /* Horizontal layout for logo elements */
+    align-items: center; /* Vertically centers logo items */
+    gap: 12px; /* Space between logo image and text */
+    font-size: 1.5rem; /* Large text for brand visibility */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Footer logo image styling - matches navigation logo */
+.footer-logo img {
+    width: 26px; /* Fixed width to match nav logo */
+    height: 28px; /* Fixed height to match nav logo */
+    object-fit: contain; /* Maintains aspect ratio while fitting dimensions */
+}
+
+/* Footer navigation links container */
+.footer-links {
+    display: flex; /* Horizontal layout for links */
+    gap: 30px; /* Space between each link */
+    justify-content: center; /* Centers links in their grid area */
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+/* Individual footer navigation links */
+.footer-links a {
+    color: white; /* White text color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    font-weight: 500; /* Medium font weight */
+}
+
+/* Footer links hover effect */
+.footer-links a:hover {
+    color: #f39c12; /* Orange color on hover - matches theme */
+}
+
+/* Social media icons container */
+.footer-social {
+    display: flex; /* Horizontal layout for social icons */
+    gap: 20px; /* Space between social icons */
+    justify-content: flex-end; /* Aligns icons to the right */
+}
+
+/* Individual social media icon links */
+.footer-social a {
+    color: white; /* White icon color */
+    font-size: 1.5rem; /* Large icons for visibility */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover animations */
+    padding: 5px; /* Adds clickable area around icons */
+}
+
+/* Social media icons hover effects */
+.footer-social a:hover {
+    color: #f39c12; /* Orange color on hover */
+    transform: translateY(-3px); /* Lifts icon slightly on hover */
+}
+
+/* Footer bottom section with copyright */
+.footer-bottom {
+    text-align: center; /* Centers copyright text */
+    padding-top: 30px; /* Space above copyright */
+    border-top: 1px solid #34495e; /* Subtle border above copyright */
+    color: #95a5a6; /* Lighter gray text for copyright */
+    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   =========================================== */
+
+/* Mobile styles for screens smaller than 768px */
+@media (max-width: 767px) {
+    /* Reduce footer padding on mobile */
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    /* Stack footer content vertically on mobile */
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center; /* Center all content */
+        gap: 25px; /* Reduced gap for mobile */
+    }
+    
+    /* Center footer links on mobile */
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap; /* Allow links to wrap */
+        gap: 20px; /* Slightly smaller gap on mobile */
+    }
+    
+    /* Center social icons on mobile */
+    .footer-social {
+        justify-content: center;
+    }
+    
+    /* Reduce bottom margin on mobile */
+    .footer-content {
+        margin-bottom: 20px;
+    }
+    
+    /* Reduce copyright padding on mobile */
+    .footer-bottom {
+        padding-top: 20px;
+    }
+}
+
+/* Extra small mobile styles for screens smaller than 480px */
+@media (max-width: 479px) {
+    /* Further reduce spacing on very small screens */
+    .footer {
+        padding: 25px 0 10px;
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+    
+    /* Stack footer links vertically on very small screens if needed */
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Smaller social icons on very small screens */
+    .footer-social a {
+        font-size: 1.3rem;
+    }
+    
+    /* Larger gap between logo elements on desktop for consistency */
+    .footer-logo {
+        gap: 15px;
+    }
+    
+    /* Slightly larger logo on desktop */
+    .footer-logo img {
+        width: 30px;
+        height: 32px;
+    }
+}
+
+/* Desktop enhancements for screens 768px and larger */
+@media (min-width: 768px) {
+    /* Larger gap between logo elements on desktop */
+    .footer-logo {
+        gap: 20px;
+    }
+    
+    /* Larger logo on desktop to match nav */
+    .footer-logo img {
+        width: 32px;
+        height: 34px;
+    }
+}

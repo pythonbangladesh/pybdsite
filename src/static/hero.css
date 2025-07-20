@@ -1,0 +1,231 @@
+/* ===========================================
+   HERO SECTION STYLES
+   =========================================== */
+
+/* Main hero container - Full viewport height with gradient background */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Purple gradient */
+    min-height: 100vh; /* Full screen height */
+    display: flex; /* Centers content vertically */
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden; /* Prevents decorative elements from overflowing */
+}
+
+/* Decorative background overlay using SVG pattern */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff10" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+    opacity: 0.1; /* Subtle overlay effect */
+}
+
+/* Container for hero content with responsive grid layout */
+.hero-container {
+    max-width: 1200px; /* Maximum width for large screens */
+    margin: 0 auto; /* Centers container */
+    padding: 0 20px; /* Side padding */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns on desktop */
+    gap: 50px; /* Space between text and image */
+    align-items: center; /* Vertically centers grid items */
+    position: relative;
+    z-index: 1; /* Ensures content appears above background overlay */
+}
+
+/* Main hero heading with gradient text effect */
+.hero-title {
+    font-size: 3.5rem; /* Large, attention-grabbing size */
+    margin-bottom: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fff, #f39c12); /* White to orange gradient */
+    -webkit-background-clip: text; /* Clips gradient to text shape */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+    background-clip: text; /* Standard property for future compatibility */
+    line-height: 1.2; /* Tight line height for impact */
+}
+
+/* Hero subtitle - secondary heading */
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    opacity: 0.9; /* Slightly transparent for hierarchy */
+    color: #f0f0f0; /* Light gray for contrast */
+}
+
+/* Hero description paragraph */
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.8; /* More transparent than subtitle */
+    line-height: 1.6; /* Better readability */
+    color: #e0e0e0; /* Lighter text for description */
+}
+
+/* Container for call-to-action buttons */
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    align-items: center;
+}
+
+/* Base button styling */
+.btn {
+    padding: 15px 30px; /* Comfortable click area */
+    border: none;
+    border-radius: 50px; /* Fully rounded buttons */
+    font-size: 1rem;
+    font-weight: 600; /* Semi-bold text */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth hover animations */
+    display: inline-block;
+    text-align: center;
+}
+
+/* Primary button - main call to action */
+.btn-primary {
+    background: linear-gradient(45deg, #f39c12, #e67e22); /* Orange gradient */
+    color: white;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); /* Orange glow */
+}
+
+/* Primary button hover effects */
+.btn-primary:hover {
+    transform: translateY(-3px); /* Lifts button slightly */
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6); /* Stronger glow */
+}
+
+/* Secondary button - outline style */
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Secondary button hover effects */
+.btn-secondary:hover {
+    background: white;
+    color: #333; /* Dark text on light background */
+    transform: translateY(-3px); /* Same lift effect */
+}
+
+/* Hero image section container */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Circular logo container with floating animation */
+.hero-logo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Perfect circle */
+    background: linear-gradient(45deg, #3776ab, #ffd343); /* Python colors */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Deep shadow */
+    animation: float 6s ease-in-out infinite; /* Floating animation */
+    overflow: hidden; /* Crops image to circle */
+}
+
+/* Logo image styling */
+.hero-logo img {
+    width: 80%; /* Fills most of the circle */
+    height: 80%;
+    object-fit: cover; /* Maintains aspect ratio while filling area */
+    border-radius: 50%; /* Ensures image is also circular */
+}
+
+/* Floating animation keyframes */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px); /* Starting and ending position */
+    }
+    50% { 
+        transform: translateY(-20px); /* Peak of float */
+    }
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - TABLET & MOBILE
+   =========================================== */
+
+/* Tablet styles (768px and below) */
+@media screen and (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center; /* Center all text */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Smaller title on mobile */
+    }
+
+    .hero-buttons {
+        justify-content: center; /* Center buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap */
+    }
+
+    .hero-logo {
+        width: 250px; /* Smaller logo on tablet */
+        height: 250px;
+    }
+}
+
+/* Small mobile styles (480px and below) */
+@media screen and (max-width: 480px) {
+    .hero-container {
+        padding: 0 15px; /* Reduced padding on small screens */
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Even smaller title */
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem; /* Smaller subtitle */
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        font-size: 1rem; /* Standard text size */
+        margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 200px; /* Fixed button width for consistency */
+        padding: 12px 20px; /* Slightly smaller padding */
+    }
+
+    .hero-logo {
+        width: 200px; /* Smallest logo size */
+        height: 200px;
+    }
+
+    /* Reduce animation intensity on mobile for performance */
+    @keyframes float {
+        0%, 100% { 
+            transform: translateY(0px);
+        }
+        50% { 
+            transform: translateY(-10px); /* Less movement on mobile */
+        }
+    }
+}

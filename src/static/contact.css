@@ -1,0 +1,173 @@
+/* ===========================================
+   CONTACT SECTION STYLES
+   =========================================== */
+
+/* Main contact section container */
+.contact {
+    padding: 100px 0; /* Large padding for section spacing */
+    background: #f8f9fa; /* Light gray background */
+}
+
+/* Contact content grid container */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns on desktop */
+    gap: 50px; /* Space between info and form */
+    max-width: 1000px; /* Prevents section from getting too wide */
+    margin: 0 auto; /* Centers the content */
+}
+
+/* Contact information section heading */
+.contact-info h3 {
+    margin-bottom: 30px;
+    color: #2c3e50; /* Dark blue-gray color */
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Individual contact information items */
+.contact-item {
+    display: flex;
+    align-items: center; /* Vertically centers icon and text */
+    margin-bottom: 20px;
+    color: #555; /* Medium gray text */
+}
+
+/* Contact item icons */
+.contact-item i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    color: #f39c12; /* Orange theme color */
+    width: 20px; /* Fixed width for alignment */
+    text-align: center; /* Centers icons in their width */
+}
+
+/* Contact form container with card styling */
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form input groups */
+.form-group {
+    margin-bottom: 25px; /* Space between form fields */
+}
+
+/* Form inputs and textarea styling */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px; /* Comfortable input padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded input corners */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus transition */
+    font-family: inherit; /* Uses page font */
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+/* Form input focus states */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none; /* Removes default browser outline */
+    border-color: #f39c12; /* Orange border on focus */
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1); /* Orange glow effect */
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+    resize: vertical; /* Only allows vertical resizing */
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+/* Submit button styling (inherits from .btn classes) */
+.contact-form .btn {
+    width: 100%; /* Full width button */
+    margin-top: 10px;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   =========================================== */
+
+/* Tablet and mobile styles (768px and below) */
+@media (max-width: 768px) {
+    /* Reduce section padding on mobile */
+    .contact {
+        padding: 60px 0;
+    }
+    
+    /* Single column layout on mobile */
+    .contact-content {
+        grid-template-columns: 1fr; /* Stack content vertically */
+        gap: 40px; /* Reduced gap for mobile */
+        padding: 0 20px; /* Add side padding */
+    }
+    
+    /* Reduce form padding on mobile */
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    /* Adjust contact info spacing */
+    .contact-info h3 {
+        margin-bottom: 20px;
+        font-size: 1.3rem; /* Slightly smaller heading */
+    }
+    
+    .contact-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* Small mobile styles (480px and below) */
+@media (max-width: 480px) {
+    /* Further reduce padding on very small screens */
+    .contact {
+        padding: 40px 0;
+    }
+    
+    .contact-content {
+        gap: 30px;
+        padding: 0 15px; /* Tighter side padding */
+    }
+    
+    /* Smaller form padding */
+    .contact-form {
+        padding: 25px 15px;
+        border-radius: 10px; /* Slightly less rounded corners */
+    }
+    
+    /* Adjust form spacing */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px; /* Slightly smaller padding */
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .form-group textarea {
+        min-height: 100px; /* Smaller textarea on mobile */
+    }
+    
+    /* Smaller contact items */
+    .contact-item {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .contact-item i {
+        font-size: 1.1rem;
+        margin-right: 12px;
+        width: 18px;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.2rem;
+    }
+}
