@@ -1,41 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PythonBD - Python Community Bangladesh</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <!-- <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> -->
-    <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+{% block title %}Home{% endblock %}
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fab fa-python"></i>
-                <span>PythonBD</span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
-                <li class="nav-item"><a href="#community" class="nav-link">Community</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+{% block content %}
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -172,6 +139,34 @@
         </div>
     </section>
 
+
+
+    <!-- COC -->
+    <section id="coc" class="coc">
+        <div class="container">
+            <h2 class="section-title">Code of Conduct</h2>
+            <div class="coc-content">
+                <p class="coc-description">
+                    PythonBD is committed to providing a welcoming and inclusive environment for all members of our community. 
+                    We expect all participants to treat each other with respect, professionalism, and kindness.
+                </p>
+                <p class="coc-description">
+                    Our community values diversity, encourages learning, and promotes collaboration among Python enthusiasts of all skill levels.
+                </p>
+                <p class="coc-description">
+                    By participating in PythonBD events and discussions, you agree to abide by our community guidelines and help us maintain a positive space for everyone.
+                </p>
+                <div class="coc-link-container">
+                    <a href="{{ url_for('coc') }}" target="_blank" class="btn btn-primary coc-link">
+                        Read Full Code of Conduct <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -185,57 +180,39 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+880 1XXX-XXXXXX</span>
+                        <span>+880 1811-964562</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Dhaka, Bangladesh</span>
                     </div>
                 </div>
+
                 <div class="contact-form">
-                    <form>
+                    <form
+                        action="https://formspree.io/f/mblkddev"
+                        method="POST"
+                    >
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fab fa-python"></i>
-                    <span>PythonBD</span>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#events">Events</a>
-                    <a href="#community">Community</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PythonBD. All rights reserved. Made with ❤️ by the PythonBD community.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+
+
+
+
+
+{% endblock %}
