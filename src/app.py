@@ -9,8 +9,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    SOCIAL_LINKS = {
+        'linkedin': 'https://www.linkedin.com/company/python-bangladesh/',
+        'discord': 'https://discord.gg/sR52eYRFba', 
+        'whatsapp': 'https://whatsapp.com/channel/0029VbAf0s70rGiMzJfG4u2B',
+        'github': 'https://github.com/pythonbangladesh'
+    }
     try:
-        return render_template('index.html')
+        return render_template('index.html', social_links=SOCIAL_LINKS)
     except Exception as e:
         return f"Error: {str(e)}", 500
 
