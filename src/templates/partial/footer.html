@@ -11,13 +11,13 @@
                     <a href="#about">About</a>
                     <a href="#events">Events</a>
                     <a href="#community">Community</a>
-                    <a href="#contact">Contact</a>
+                    <a href="{{ url_for('coc') }}" target="_blank">COC</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="{{ social_links.whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="{{ social_links.discord }}" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="{{ social_links.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="{{ social_links.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">

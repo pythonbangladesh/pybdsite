@@ -17,8 +17,8 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="python-logo">
-                    <i class="fab fa-python"></i>
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='hero-image.png') }}" alt="PythonBD Community">
                 </div>
             </div>
         </div>
@@ -59,37 +59,39 @@
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="events-grid">
+                
                 <div class="event-card">
                     <div class="event-date">
-                        <span class="day">15</span>
+                        <span class="day">09</span>
                         <span class="month">AUG</span>
                     </div>
                     <div class="event-content">
-                        <h3>Python Web Development Workshop</h3>
+                        <h3>Python Bangladesh Office Hour</h3>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Online </p>
+                        <p>Monthy get together of community members, Discuss upcoming meetup and workshops.</p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">23</span>
+                        <span class="month">AUG</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Machine Learning Workshop</h3>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Online</p>
+                        <p>Explore machine learning and deployment.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">TBA</span>
+                        <span class="month">TBA</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>PythonBD Meetup</h3>
                         <p class="event-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
-                        <p>Learn Django and Flask frameworks with hands-on projects and expert guidance.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">22</span>
-                        <span class="month">AUG</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Data Science Meetup</h3>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Chittagong, Bangladesh</p>
-                        <p>Explore Python libraries for data analysis, machine learning, and visualization.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">05</span>
-                        <span class="month">SEP</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>PythonBD Annual Conference</h3>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Sylhet, Bangladesh</p>
-                        <p>Our biggest annual gathering with talks, workshops, and networking opportunities.</p>
+                        <p>Our community gathering with lightning talks, and networking opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -102,36 +104,36 @@
             <h2 class="section-title">Join Our Community</h2>
             <div class="community-stats">
                 <div class="stat">
-                    <h3>5,000+</h3>
+                    <h3>100+</h3>
                     <p>Active Members</p>
                 </div>
                 <div class="stat">
-                    <h3>100+</h3>
+                    <h3>3</h3>
                     <p>Events Organized</p>
                 </div>
                 <div class="stat">
-                    <h3>50+</h3>
+                    <h3>2</h3>
                     <p>Open Source Projects</p>
                 </div>
-                <div class="stat">
+                <!-- <div class="stat">
                     <h3>15+</h3>
                     <p>Cities Covered</p>
-                </div>
+                </div> -->
             </div>
             <div class="community-links">
-                <a href="#" class="community-link">
-                    <i class="fab fa-facebook"></i>
-                    <span>Facebook Group</span>
+                <a href="{{ social_links.linkedin }}" target="_blank" class="community-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn Page</span>
                 </a>
-                <a href="#" class="community-link">
+                <a href="{{ social_links.discord }}" target="_blank" class="community-link">
                     <i class="fab fa-discord"></i>
                     <span>Discord Server</span>
                 </a>
-                <a href="#" class="community-link">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram Channel</span>
+                <a href="{{ social_links.whatsapp }}" target="_blank" class="community-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp Channel</span>
                 </a>
-                <a href="#" class="community-link">
+                <a href="{{ social_links.github }}" target="_blank" class="community-link">
                     <i class="fab fa-github"></i>
                     <span>GitHub Organization</span>
                 </a>

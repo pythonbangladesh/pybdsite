@@ -1,9 +1,11 @@
 <nav class="navbar">
     <div class="nav-container">
-        <div class="nav-logo">
-            <i class="fab fa-python"></i>
-            <span>PythonBD</span>
-        </div>
+
+<div class="nav-logo">
+    <img src="{{ url_for('static', filename='nav-img-2.png') }}" alt="PythonBD">
+    <span>PythonBD</span>
+</div>
+
         <ul class="nav-menu">
             <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
@@ -12,10 +14,12 @@
             <li class="nav-item"><a href="#coc" class="nav-link">Code of Conduct</a></li>
             <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
+
         <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
+
     </div>
 </nav>
