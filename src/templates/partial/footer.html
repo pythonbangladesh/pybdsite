@@ -1,27 +1,28 @@
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fab fa-python"></i>
-                    <span>PythonBD</span>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#events">Events</a>
-                    <a href="#community">Community</a>
-                    <a href="{{ url_for('coc') }}" target="_blank">COC</a>
-                </div>
-                <div class="footer-social">
-                    <a href="{{ social_links.whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="{{ social_links.discord }}" target="_blank"><i class="fab fa-discord"></i></a>
-                    <a href="{{ social_links.github }}" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="{{ social_links.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='nav-img-2.png') }}" alt="PythonBD">
+                <span>PythonBD</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PythonBD. All rights reserved. Made with ❤️ by the PythonBD community.</p>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#community">Community</a>
+                <a href="{{ url_for('coc') }}" target="_blank">COC</a>
+            </div>
+            <div class="footer-social">
+                <a href="{{ social_links.whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ social_links.discord }}" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="{{ social_links.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="{{ social_links.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PythonBD. All rights reserved. Made with ❤️ by the PythonBD community.</p>
+        </div>
+    </div>
+</footer>
