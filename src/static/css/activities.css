@@ -3,12 +3,19 @@
     padding: 100px 0;
     background: #f8f9fa;
 }
+/* .past-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+    /* grid-template-columns: repeat(2, 1fr);  */
+    /* gap: 30px;
+} */
 .past-events-grid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
-    grid-template-columns: repeat(2, 1fr); /* fixed 2 per row */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
+    justify-content: center;
 }
+
 .past-event-card {
     background: white;
     border-radius: 15px;
