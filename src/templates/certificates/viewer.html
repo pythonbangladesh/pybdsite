@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}Certificate - {{ participant_name }}{% endblock %}
+
+{% block extra_head %}
+<style>
+/* Certificate viewer styles - highly specific selectors to avoid conflicts */
+#certificate-page-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto 80px auto;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+#certificate-page-wrapper .cert-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#certificate-page-wrapper .cert-header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#certificate-page-wrapper .cert-header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+#certificate-page-wrapper .cert-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#certificate-page-wrapper .cert-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#certificate-page-wrapper .cert-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+#certificate-page-wrapper .cert-display {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+#certificate-page-wrapper .cert-frame {
+    max-width: 1200px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+#certificate-page-wrapper .cert-mobile-notice {
+    display: none;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    color: #856404;
+}
+
+#certificate-page-wrapper .cert-mobile-notice i {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #certificate-page-wrapper .cert-header h1 {
+        font-size: 1.5rem;
+    }
+
+    #certificate-page-wrapper .cert-actions {
+        flex-direction: column;
+    }
+
+    #certificate-page-wrapper .cert-download-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    #certificate-page-wrapper .cert-display {
+        padding: 20px 10px;
+    }
+
+    #certificate-page-wrapper .cert-mobile-notice {
+        display: block;
+    }
+
+    #certificate-page-wrapper .cert-frame .certificate {
+        transform: scale(0.8);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 480px) {
+    #certificate-page-wrapper {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    #certificate-page-wrapper .cert-header h1 {
+        font-size: 1.3rem;
+    }
+
+    #certificate-page-wrapper .cert-display {
+        padding: 15px 5px;
+    }
+
+    #certificate-page-wrapper .cert-frame .certificate {
+        transform: scale(0.6);
+    }
+}
+
+/* Print Styles */
+@media print {
+    #certificate-page-wrapper .cert-header,
+    #certificate-page-wrapper .cert-actions,
+    #certificate-page-wrapper .cert-mobile-notice {
+        display: none !important;
+    }
+
+    #certificate-page-wrapper .cert-display {
+        background: none;
+        padding: 0;
+    }
+
+    #certificate-page-wrapper .cert-frame {
+        box-shadow: none;
+        max-width: 100%;
+    }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div id="certificate-page-wrapper">
+    <div class="cert-header">
+        <h1>Certificate of Completion</h1>
+        <p>{{ participant_name }}</p>
+    </div>
+
+    <div class="cert-actions">
+        <a href="{{ url_for('download_certificate', ref_code=certificate_id) }}" class="cert-download-btn">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+    </div>
+
+    <div class="cert-display">
+        <div class="cert-frame">
+            {% include 'certificates/workshop_research_lifecycle.html' %}
+        </div>
+    </div>
+
+    <div class="cert-mobile-notice">
+        <i class="fas fa-info-circle"></i>
+        <p>For best viewing experience, please view this certificate on a larger screen or download the PDF.</p>
+    </div>
+</div>
+
+{% include "about.html" %}
+{% include "community.html" %}
+{% include "activities.html" %}
+{% include "coc.html" %}
+{% include "contact.html" %}
+{% endblock %}

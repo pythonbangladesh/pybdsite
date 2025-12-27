@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/certificate.css') }}">
+    <title>Certificate</title>
+</head>
+<body>
+    <div class="certificate">
+        <!-- Background decorations -->
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
+        <div class="circle circle5"></div>
+        
+        <!-- Border frame -->
+        <div class="border-frame"></div>
+        
+        <!-- Geometric boxes -->
+        <div class="geo-box left-top"></div>
+        <div class="geo-box left-middle"></div>
+        <div class="geo-box left-bottom"></div>
+        <div class="geo-box right-top"></div>
+        <div class="geo-box right-middle"></div>
+        <div class="geo-box right-bottom"></div>
+        
+        <!-- Yellow circles -->
+        <div class="yellow-circle left"></div>
+        <div class="yellow-circle right"></div>
+        
+        <!-- White rectangles -->
+        <div class="white-rect left"></div>
+        <div class="white-rect right"></div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="{{ url_for('static', filename='img/logo_aimlpcbd.png') }}" alt="AI/ML Professional Community Bangladesh">
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <h1 class="title">CERTIFICATE</h1>
+                <div class="subtitle">OF COMPLETION</div>
+                
+                <div class="divider"></div>
+                <p class="awarded-text">This certificate is proudly presented to</p>
+                
+                <h2 class="recipient-name">{{ participant_name.title() }}</h2>
+                <div class="name-underline"></div>
+                
+                <p class="description">
+                    For successfully completing the {{ event_type.lower() }} on <b>{{ event_name.upper() }}</b>
+                    organized by <b>{{ organizer.upper() }}</b> on {{ month }} {{ year }}, 
+                    demonstrating excellence and commitment to professional development.
+                </p>
+                
+                <div class="credentials">
+                    Certificate ID: {{ certificate_id }} | Issue Date: {{ day }} {{ month }} {{ year }}
+                </div>
+                <div class="qr-section">
+                    <div class="qr-placeholder">
+                    <img src="{{ url_for('static', filename='img/verifyQR.png') }}" alt="QR Code">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Signatures -->
+            <div class="signatures">
+                <div class="signature-block">
+                    <div class="signature-name">{{ facilitator }}</div>
+                    <div class="signature-line"></div>
+                    <div class="signature-title">{{ event_type.title() }} Facilitator</div>
+                </div>
+                
+                <div class="signature-block">
+                    <div class="signature-name">{{ director }}</div>
+                    <div class="signature-line"></div>
+                    <div class="signature-title">Community Director</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
