@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+
+{% block title %}Certificate Verification{% endblock %}
+
+{% block content %}
+
+<div class="verify-container">
+    <div class="verify-header">
+        <h1>Verification</h1>
+        <p>Verify certificates, people and allies</p>
+    </div>
+
+    <!-- Verification Form -->
+    <form method="POST" action="{{ url_for('verify') }}" class="verify-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="community">category</label>
+                <select name="community" id="community" required>
+                    <option value="">Select Category</option>
+                    <option value="certificate" selected>Certificate</option>
+                    <option  value="people" disabled>People</option>
+                    <option value="allies" disabled>Allies</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cert_id">Reference Code or ID</label>
+                <input 
+                    type="text" 
+                    name="cert_id" 
+                    id="cert_id" 
+                    placeholder="e.g., PYBD-20240001"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="verify-btn">
+                <i class="fas fa-search"></i> Verify
+            </button>
+
+        </div>
+    </form>
+
+    <!-- Verification Result -->
+    {% if result %}
+    <div class="verify-result">
+        {% if result.status == 'verified' %}
+        <!-- Verified Certificate -->
+        <div class="result-card verified">
+            <div class="result-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="result-content">
+                <h2>✓ Verification Successfull</h2>
+                <p class="result-subtitle">The certificate {{ result.ref_code }} is authentic and valid</p>
+                <a href="{{ url_for('show_certificate', ref_code=result.ref_code) }}" class="view-certificate-btn">
+                    <i class="fas fa-certificate"></i> View Certificate
+                </a>
+            </div>
+        </div>
+
+        {% elif result.status == 'not_found' %}
+        <!-- Certificate Not Found -->
+        <div class="result-card not-verified">
+            <div class="result-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="result-content">
+                <h2>✗ Certificate Not Found</h2>
+                <p class="result-subtitle">The certificate ID <strong>{{ result.ref_code }}</strong> could not be verified</p>
+                <p class="result-message">This certificate may not exist or has been revoked. Please check the ID and try again.</p>
+            </div>
+        </div>
+
+        {% elif result.status == 'invalid' %}
+        <!-- Invalid Input -->
+        <div class="result-card error">
+            <div class="result-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="result-content">
+                <h2>Invalid Input</h2>
+                <p class="result-message">{{ result.error }}</p>
+            </div>
+        </div>
+
+        {% else %}
+        <!-- System Error -->
+        <div class="result-card error">
+            <div class="result-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="result-content">
+                <h2>Verification Error</h2>
+                <p class="result-message">Unable to verify certificate at this time. Please try again later.</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% include "about.html" %}
+{% include "community.html" %}
+{% include "activities.html" %}
+{% include "coc.html" %}
+{% include "contact.html" %}
+
+<style>
+.verify-container {
+    max-width: 900px;
+    margin: 60px auto;
+    margin-top: 120px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.verify-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.verify-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.verify-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.verify-form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group select,
+.form-group input {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.verify-btn {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.verify-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.verify-result {
+    margin-top: 40px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.result-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.result-card.verified .result-icon {
+    color: #27ae60;
+}
+
+.result-card.not-verified .result-icon {
+    color: #e74c3c;
+}
+
+.result-card.error .result-icon {
+    color: #f39c12;
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.result-subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.result-message {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.certificate-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.detail-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #555;
+    min-width: 140px;
+}
+
+.detail-value {
+    color: #2c3e50;
+    flex: 1;
+}
+
+.view-certificate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.view-certificate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .result-icon {
+        font-size: 3rem;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .detail-label {
+        margin-bottom: 5px;
+    }
+}
+</style>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+{% block extra_scripts %}
+<script>
+window.addEventListener('beforeprint', () => {
+    // Ensure all styles are loaded before printing
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        if (!link.sheet) {
+            link.addEventListener('load', () => window.print());
+        }
+    });
+});
+</script>
+{% endblock %}

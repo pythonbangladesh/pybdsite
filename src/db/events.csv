@@ -1,0 +1,3 @@
+event_id,Organizer,event_type,event_sub_type,event_name,facilitator,director,year,month,day
+AIMLPCBD-W251025R,AI/ML Professional Community Bangladesh,workshop,research,Research Project Lifecycle,Mansura Naznine,Taufiqul Haque Khan,2025,October,25
+AIMLPCBD-W291125I,AI/ML Professional Community Bangladesh,workshop,technical,Data Exploration with Pandas Profiling,Kazi Junaid Mahmud,Taufiqul Haque Khan,2025,November,29

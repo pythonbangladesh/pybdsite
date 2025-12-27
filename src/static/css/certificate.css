@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+.certificate {
+    width: 210mm;
+    height: 297mm;
+    background: linear-gradient(135deg, #1a5a8a 0%, #2571a8 50%, #2e86c1 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Decorative circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.circle1 {
+    width: 450px;
+    height: 450px;
+    top: -200px;
+    left: -150px;
+}
+
+.circle2 {
+    width: 380px;
+    height: 380px;
+    top: -80px;
+    left: 80px;
+}
+
+.circle3 {
+    width: 320px;
+    height: 320px;
+    top: 120px;
+    right: 30px;
+}
+
+.circle4 {
+    width: 280px;
+    height: 280px;
+    bottom: -80px;
+    right: 120px;
+}
+
+.circle5 {
+    width: 240px;
+    height: 240px;
+    bottom: 180px;
+    left: -60px;
+}
+
+/* Geometric decorations */
+.geo-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.geo-box.left-top {
+    width: 100px;
+    height: 100px;
+    top: 480px;
+    left: 0;
+}
+
+.geo-box.left-middle {
+    width: 80px;
+    height: 100px;
+    top: 600px;
+    left: 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.geo-box.left-bottom {
+    width: 90px;
+    height: 90px;
+    bottom: 180px;
+    left: 0;
+}
+
+.geo-box.right-top {
+    width: 100px;
+    height: 100px;
+    top: 480px;
+    right: 0;
+}
+
+.geo-box.right-middle {
+    width: 80px;
+    height: 100px;
+    top: 600px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.geo-box.right-bottom {
+    width: 90px;
+    height: 90px;
+    bottom: 180px;
+    right: 0;
+}
+
+/* Yellow/Gold circles */
+.yellow-circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #FDB913;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(253, 185, 19, 0.4);
+}
+
+.yellow-circle.left {
+    bottom: 200px;
+    left: 25px;
+}
+
+.yellow-circle.right {
+    bottom: 200px;
+    right: 25px;
+}
+
+/* White rectangles */
+.white-rect {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.white-rect.left {
+    width: 110px;
+    height: 80px;
+    bottom: 210px;
+    left: 55px;
+}
+
+.white-rect.right {
+    width: 110px;
+    height: 80px;
+    bottom: 210px;
+    right: 55px;
+}
+
+/* Border frame */
+.border-frame {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.border-frame::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 80px 80px 60px;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Logo section */
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-placeholder {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: #0d4e7d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.logo-placeholder img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 76px;
+    letter-spacing: 12px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 8px;
+    background: white;
+    color: #0d4e7d;
+    display: inline-block;
+    padding: 10px 40px;
+    border-radius: 30px;
+    margin-bottom: 20px;  /* Changed from 60px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 30px auto 35px;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+}
+
+.awarded-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.95;
+}
+
+.recipient-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 54px;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+}
+
+.name-underline {
+    width: 420px;
+    height: 2px;
+    background: white;
+    margin: 0 auto 45px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 680px;
+    margin: 0 auto 40px;
+    margin-bottom: 20px;  /* Changed from 60px */
+    font-weight: 400;
+    opacity: 0.98;
+}
+
+.credentials {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    margin: 25px auto;
+    padding: 10px 28px;
+    background: rgba(255, 255, 255, 0.08);
+    display: inline-block;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.qr-placeholder {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #0d4e7d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.qr-placeholder img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.qr-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Signatures */
+.signatures {
+    display: flex;
+    justify-content: center;
+    gap: 140px;
+    margin-top: 25px;
+}
+
+.signature-block {
+    text-align: center;
+    min-width: 220px;
+}
+
+.signature-image {
+    font-family: 'Brush Script MT', 'Apple Chancery', cursive;
+    font-size: 46px;
+    color: white;
+    font-style: italic;
+    margin-bottom: 8px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature-line {
+    width: 100%;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+}
+
+.signature-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.signature-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .certificate {
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: always;
+    }
+}
