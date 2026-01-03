@@ -109,7 +109,7 @@ def download_certificate(ref_code):
         abort(500, description=f"Internal server error: {str(e)}")
 
 
-@app.route('/verify', methods=['GET', 'POST'])
+@app.route('/verify', methods=['GET', 'POST'], strict_slashes=False)
 def verify():
     """
     Certificate verification endpoint.
